@@ -38,27 +38,27 @@ export const popularProducts = [
     "img":img4
 },
 {
-    "id":1,
+    "id":4,
     "name":"Suite And Tie",
     "img":img5
 },
 {
-"id":2,
+"id":5,
 "name":"Shirts And Shorts",
 "img":img4
 },
 {
-"id":3,
+"id":6,
 "name":"Ladies Shirt",
 "img":img5
 },
 {
-    "id":1,
+    "id":7,
     "name":"Suite And Tie",
     "img":img4
 },
 {
-"id":2,
+"id":8,
 "name":"Shirts And Shorts",
 "img":img5
 },

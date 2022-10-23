@@ -4,15 +4,13 @@ import Announcement  from "../components/Announcement";
 import Products from "../components/Products";
 import NewsLetter from "../components/NewsLetter";
 import Footer from "../components/Footer";
-import Slider from "../components/Slider";
-import Categories from "../components/Categories";
-const Home = () => {
+import Filter from "../components/Filter";
+const ProductListing = () => {
   return (
     <div>
-      <Announcement/>
+       <Announcement/>
        <Navbar/>
-       <Slider/>
-       <Categories/>
+       <Filter/>
        <Products/>
       <NewsLetter/>
       <Footer/>
@@ -20,4 +18,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default ProductListing;
