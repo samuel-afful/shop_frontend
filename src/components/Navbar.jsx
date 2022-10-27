@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import {mobile} from "../responsive";
 import { Search,ShoppingCartOutlined } from '@mui/icons-material';
 import  { Badge } from '@mui/material';
 import { grey } from '@mui/material/colors';
@@ -18,6 +19,7 @@ const Wrapper = styled.div`
 const Language = styled.span`
     font-size:15px;
     cursor:pointer;
+    ${mobile({display:"none"})}
 `;
 
 const Left = styled.div`
@@ -35,6 +37,7 @@ const Right = styled.div`
     display: flex;
     align-items:center;
     justify-content:flex-end;
+    ${mobile({justifyContent:"flex-start"})}
 `;
 
 const SearchContainer = styled.div`
@@ -43,18 +46,21 @@ border-radius:5px;
 display:flex;
 align-items:center;
 margin-left: 10px;
+${mobile({width:"80px",marginLeft:"0px"})}
 `
 const Input = styled.input`
     border:none;
+    ${mobile({width:"55px"})}
 `
 const Logo = styled.h1`
     font-weight:bold;
+    ${mobile({fontSize:"24px"})}
 `
 const MenuItem = styled.span`
 font-size:15px;
 cursor:pointer;
 margin-left:25px;
-
+${mobile({marginLeft:"auto",margin:"5px"})}
 `
 const Navbar = () => {
   return (   

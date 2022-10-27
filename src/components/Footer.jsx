@@ -1,13 +1,16 @@
 import styled from "styled-components";
+import {mobile} from "../responsive";
 import {Room, Phone, Facebook,Twitter,Pinterest,Instagram, MailOutlined} from "@mui/icons-material";
 const Container = styled.div`
     width: 100%;
     display: flex;
     justify-content:center;
     align-items:center;
+    ${mobile({flexDirection:"column"})}
 `
 const LinkContainer = styled.div`
-    flex:1
+    flex:1;
+    ${mobile({display:"none"})}
 `;
 
 const SocialContainer = styled.div`
@@ -18,6 +21,7 @@ const ContactContainer = styled.div`
     flex:1;
     margin-bottom:10px;
     padding-bottom:10px;
+    ${mobile({paddingRight:"100px"})}
 `;
 
 const Logo = styled.div`
@@ -60,13 +64,13 @@ const Item =styled.li`
 const Contact = styled.h1`
 font-size:20px;
 
-
-
 `
 const ContactListing = styled.div`
     display:flex;
     align-items: center;
+    justify-content: flex-start;
     padding-top:20px;
+    
 `
 const IconDesc = styled.p`
 

@@ -4,6 +4,7 @@ import { ArrowLeftOutlined,ArrowRightOutlined } from '@mui/icons-material';
 import img1 from '../img/img1.png'
 import img2 from '../img/img2.png'
 import { useState } from 'react';
+import {mobile} from "../responsive";
 
 const Container = styled.div`
     width:100%;
@@ -12,6 +13,7 @@ const Container = styled.div`
     position: relative;
     align-items:center;
     overflow:hidden;
+    ${mobile({display:"none"})}
 `
 const Arrow = styled.div`
     border-radius: 50%;

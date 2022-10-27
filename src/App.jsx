@@ -1,9 +1,13 @@
+import styled from "styled-components"
+import Home from "./pages/Home";
+const Container = styled.div`
+  width:100vw;
+`
 
-import Cart from "./pages/Cart";
 function App() {
   return (
     <div className="App">
-    <Cart/>
+    <Home/>
     </div>
   );
 }
