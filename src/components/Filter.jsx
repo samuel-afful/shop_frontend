@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
+import {mobile} from '../responsive';
+
 const Container = styled.div`
     width:100%;
     
@@ -12,6 +14,7 @@ const FilterContainer =  styled.div`
     display: flex;
     justify-content: space-between;
     margin:10px;
+    ${mobile({alignItems: "center"})}
 `
 const FilterText =styled.p`
     padding-top:13px;
@@ -23,20 +26,21 @@ const SortText =styled.p`
 const FilterProduct =styled.span`
     flex:1;
     display: flex;
+    ${mobile({flexDirection:"column"})}
 `
 const SortProduct =styled.span`
     flex:1;
     justify-content: end;
     display:flex;
-    align-items: center;
     
+    ${mobile({flexDirection:"column",alignItems:"center",paddingBottom:"30px"})}
 `
 const SelectFilter = styled.select`
     width:10%;
     height: 25px;
     margin:10px;
     padding:5px;
-   
+    ${mobile({width:"40%"})}
 `
 const OptionFilter = styled.option`
 
@@ -46,7 +50,7 @@ const SelectSort = styled.select`
     height: 25px;
     margin:10px;
     padding:5px;
-   
+   ${mobile({width:"40%"})}
 `
 const OptionSort = styled.option`
 

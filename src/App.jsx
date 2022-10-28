@@ -1,5 +1,10 @@
 import styled from "styled-components"
 import Home from "./pages/Home";
+import Cart from "./pages/Cart";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import ProductListing from "./pages/ProductListing";
+import Product from "./pages/Product";
 const Container = styled.div`
   width:100vw;
 `
@@ -7,7 +12,7 @@ const Container = styled.div`
 function App() {
   return (
     <div className="App">
-    <Home/>
+    <Cart/>
     </div>
   );
 }

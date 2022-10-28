@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
-import img2 from '../img/img1.png'
+import img2 from '../img/img1.png';
+import {mobile} from '../responsive'
 import img1 from "../img/vecteezy_work-from-home-lifestyle-top-view_2133124.jpg"
 
 
@@ -22,6 +23,7 @@ const Wrapper = styled.div`
     width: 40%;
     background-color: white;
     padding:20px;
+    ${mobile({width:"100%",margin:"5px"})}
 `;
 const Title = styled.h1`
     font-size: 24px;
@@ -36,6 +38,7 @@ const Input = styled.input`
     min-width: 40%;
     margin: 20px 10px 0 0;
     padding: 10px;
+    
 `;
 const Agreement = styled.span`
     margin: 10px 0 ;

@@ -3,7 +3,8 @@ import Navbar from "../components/Navbar"
 import Footer from "../components/Footer"
 import React from 'react';
 import styled from  "styled-components"
-import img from "../img/img2.png"
+import img from "../img/img2.png";
+import  {mobile} from '../responsive'
 import {Remove,Add} from "@mui/icons-material"
 
 const Container = styled.div`
@@ -26,16 +27,18 @@ const TopButton = styled.button`
      color: ${props=>props.type === "fill"?"white":"black"};
 `
 const TopTexts = styled.div`
-   
+   ${mobile({display:"none"})}
 `
 const TopText = styled.span`
     margin: 0px 10px;
     text-decoration: underline;
     cursor: pointer;
+    
 ` 
 const Bottom = styled.div`
     display: flex;
     justify-content: space-between;
+    ${mobile({flexDirection:"column"})}
 `
 const Info = styled.div`
     flex:3;
@@ -53,6 +56,7 @@ const Product = styled.div`
     padding: 10px;
     display:flex; 
     justify-content: space-between;
+    ${mobile({flexDirection:"column"})}
 `
 const Image = styled.img`
     width: 200px;
@@ -65,6 +69,7 @@ const ProductDetail = styled.div`
 const PriceDetail = styled.div`
     padding-top: 20px;
     flex:1;
+    ${mobile({paddingLeft:"220px"})}
 `
 const ProductColor = styled.div`
     border-radius: 50%;

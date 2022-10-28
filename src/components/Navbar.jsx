@@ -62,7 +62,7 @@ const MenuItem = styled.span`
 font-size:15px;
 cursor:pointer;
 margin-left:25px;
-${mobile({marginLeft:"auto",margin:"3px"})}
+${mobile({marginLeft:"auto",margin:"3px",fontSize:"12px"})}
 `
 const Navbar = () => {
   return (   

@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
-import img2 from '../img/img1.png'
+import img2 from '../img/img1.png';
+import {mobile} from '../responsive'
+
 
 const Container = styled.div`
     width:100vw;
@@ -14,6 +16,7 @@ const Wrapper = styled.div`
     background-color: white;
     padding: 20px;
     width:25%;
+    ${mobile({width:"90%",margin:"5px"})}
 `
 const Title = styled.h1`
     font-size: 24px;

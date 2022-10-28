@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import img1 from "../img/img1.png";
+import { mobile } from '../responsive';
 import {Add,Remove} from "@mui/icons-material"
 
 const Container = styled.div`
@@ -13,19 +14,25 @@ const Wrapper = styled.div`
     display : flex;
     justify-content: center;
     padding:15px;
+    ${mobile({flexDirection:"column"})}
 `
 const ImageContainer = styled.div`
-    flex: 4;
-    height: 90%;
+   flex:1;
     background-color: #f3fafa;
+    height:50vh;
+    ${mobile({width:"100%"})}
 `
 const Image = styled.img`
-
+width: 100%;
+height: 80vh;
+object-fit: cover;
+background-color: #f3fafa;
+${mobile({height:"100%"})}
 `
 const InfoContainer = styled.div`
-    flex: 2;
-    padding-left: 30px;
-    width: 100%;
+    flex:1;
+    padding-left: 50px;
+    ${mobile({paddingTop:"10px",width:"100%",paddingLeft:"0px"})}
 `
 const Title = styled.p`
     font-size: 25px;
@@ -60,6 +67,7 @@ const Color = styled.div`
     width:30px;
     background-color: ${props=>props.bg};
     margin-right: 10px;
+   
 `
 const TextColor = styled.p`
     margin-right: 10px;
@@ -74,6 +82,7 @@ const SizeOption = styled.option`
 const SizeContainer = styled.div`
     display: flex;
     margin-left: 20px;
+    
 `
 const SizeText = styled.p`
 margin-right: 10px;
@@ -81,12 +90,13 @@ margin-right: 10px;
 const Quantity = styled.div`
      display: flex;
      align-items: center;
+     ${mobile({justifyContent:"space-between"})}
 `
 const QtyBtn = styled.button`
     border-radius:5px;
     border: solid 1px gray;
     height: 30px;
-    margin: auto;
+    margin: 10px;
     width: 25px;
 `
 const CartButton = styled.button`
@@ -94,7 +104,8 @@ const CartButton = styled.button`
     margin-left: 120px;
     height:35px;
     cursor: pointer;
-    width: 
+    
+    ${mobile({fontSize:"10px",width: "100%",height:"50px"})}
 `
 const ProductDetail = () => {
   return (
