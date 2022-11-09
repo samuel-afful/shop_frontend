@@ -11,6 +11,7 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     background: linear-gradient(rgba(225,225,225,0.5),rgba(225,225,225,0.5)) ,url(${img2});
+   
 `
 const Wrapper = styled.div`
     background-color: white;
@@ -25,7 +26,7 @@ const Title = styled.h1`
 const Form = styled.form`
     display: flex;
     flex-wrap: wrap;
-    
+    ${mobile({flexDirection:"column"})}
 `
 const Input = styled.input`
     min-width: 90%;

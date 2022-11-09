@@ -48,7 +48,7 @@ const CategoryItem = ({item}) => {
   return (
     
     <Container>
-        <Image src={item.img}/>
+        <Image src={item.img} alt="image"/>
         <TextContainer>
         <Title>{item.name}</Title>
           <Button>BUY ME</Button>
@@ -58,3 +58,4 @@ const CategoryItem = ({item}) => {
 }
 
 export default CategoryItem;
+  

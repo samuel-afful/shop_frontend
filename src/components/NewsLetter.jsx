@@ -5,7 +5,7 @@ import { mobile } from '../responsive';
 
 const Container = styled.div`
     height: 50vh;
-    width:100vw;
+    max-width:100vw;
     background-color:#fcf1ed;
     display: flex;
     justify-content: center;
@@ -37,7 +37,7 @@ const Input = styled.input`
     flex:8;
     border: none;
     padding-left:10px;
-
+    height:100%;
 `
 const Button = styled.button`
     background-color:teal;
@@ -48,6 +48,7 @@ const Button = styled.button`
     width: 50px;
     border: none;
     flex:1;
+    height:100%;
 `
 const NewsLetter = () => {
   return (
