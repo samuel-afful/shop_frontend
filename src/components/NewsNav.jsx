@@ -51,20 +51,25 @@ const ItemContainer = styled.div`
 
 
 const NewsNav = () => {
-   const apiKey = "fc51c6ffc2b7e8657f50d72e2d88abb0";
+   
    const [news,setnews] = useState([])
+   const [filter, setfilter] = useState(true);
    var newsitem = news.slice(0,20);
-    console.log(newsitem)
-    const [sort, setsort] = useState({newsitem});
-    console.log(sort);
-
-    const handleSearch = (name)=>{    
-        const data = newsitem.filter(item=>item.name=== name);
+    const [sort, setsort] = useState();
+    console.log(news)
+    const handleSearch = (name)=>{ 
+        const data = newsitem.filter(item=>item.title.toLowerCase().includes(name));
         setsort(data);
-        console.log(sort)
-     }
-   const [word, setword] = useState();
-   console.log(word)
+        setfilter(false); 
+    }  
+     
+    
+    
+
+
+   const [word, setword] = useState('');
+   
+   
 
    useEffect(()=>(
     async function getUser() {
@@ -73,15 +78,18 @@ const NewsNav = () => {
           
           let data = response.data.articles;
           
-          setnews(data);   
+          setnews(data);
+        
+        
         } catch (error) {
           console.error(error);
         }
       
       }
+      
    ),[])
-
   return (
+    
     <PageContainer> 
           <Container>
         <Logo>
@@ -89,7 +97,7 @@ const NewsNav = () => {
         </Logo>
         <SearchContainer >
             
-            <Input value={word} onInput={(e)=>setword(e.target.value)} onChange={()=>handleSearch(word)} ></Input>
+            <Input value={word} onInput={(e)=>setword(e.target.value.toLowerCase())}  onChange={(e)=>e.target.value.trim().length<=0 && setfilter(true)} ></Input>
             <Icon>
                 <SearchOutlined onClick={()=>handleSearch(word)} />
             </Icon>
@@ -98,10 +106,12 @@ const NewsNav = () => {
      
     </Container>
     <ItemContainer>
-        {newsitem.map(item=>(
+        {  filter?newsitem.map(item=>(
+                  <NewsItem item={item}/>)):sort.map(item=>(
                   <NewsItem item={item}/>
-        ))}
-      
+        ))
+        }
+            
     </ItemContainer>
     </PageContainer>
     
