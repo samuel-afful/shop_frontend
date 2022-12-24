@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import {mobile} from "../responsive"
-
+import { Link } from "react-router-dom";
 const Container = styled.div`
 height:70vh;
 width: 90%;
@@ -48,11 +48,13 @@ const CategoryItem = ({item}) => {
   return (
     
     <Container>
+       <Link to={`/products/${item.cat}`}>
         <Image src={item.img} alt="image"/>
         <TextContainer>
         <Title>{item.name}</Title>
           <Button>BUY ME</Button>
         </TextContainer>
+        </Link>
     </Container>
   );
 }

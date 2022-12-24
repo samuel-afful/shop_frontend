@@ -14,17 +14,20 @@ export const categories = [
     {
         "id":1,
         "name":"Suite And Tie",
-        "img":img1
+        "img":img1,
+        "cat":"Men"
 },
 {
     "id":2,
     "name":"Shirts And Shorts",
-    "img":img2
+    "img":img2,
+    "cat":"Women"
 },
 {
     "id":3,
     "name":"Ladies Shirt",
-    "img":img3
+    "img":img3,
+    "cat":"Loungne"
 },
 ];
 
