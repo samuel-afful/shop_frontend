@@ -61,20 +61,24 @@ const Button = styled.button`
 `
 const Admin = () => {
   var data
-  const [color,setColor] = useState([])
+  const [color,setColor] = useState()
     const [product,setProduct] = useState({});
     const [cat,setCat] = useState([])
+    const [size,setSize] = useState([])
     const [file,setFile] = useState([])
     const handleChange =(e)=>{
          setProduct(prev=>{
             return{...prev,[e.target.name]:e.target.value}}
             )
     }
+    const handleSize = (e)=>{
+      setCat(e.target.value.split(","))
+  }
     const handleCat = (e)=>{
-        setCat({[e.target.name]:e.target.value.split(",")})
+        setCat(e.target.value.split(","))
     }
     const handleCol = (e)=>{
-      setColor({[e.target.name]:e.target.value.split(",")})
+      setColor(e.target.value.split(","))
   }
  console.log(product)
 //  console.log(cat)
@@ -143,7 +147,7 @@ uploadTask.on('state_changed',
     <InputImg type="file" name="img" onChange={(e)=>setFile(e.target.files[0])}></InputImg>
     <InputText>Name</InputText>
     <Input type="text" placeholder='Jeans' name="title" onChange={handleChange}></Input>
-    <InputText>Telphone</InputText>
+    <InputText>Description</InputText>
     <Input type="text" placeholder='description...' name="desc" onChange={handleChange}></Input>
     <InputText>Price</InputText>
     <Input type="number" name="price" placeholder='100'  onChange={handleChange}></Input>
@@ -151,6 +155,8 @@ uploadTask.on('state_changed',
     <Input type="text" placeholder='Jeans,shirts' name="categories"  onChange={handleCat}></Input>
     <InputText>Color</InputText>
     <Input type="text" placeholder='red,blue' name="color"  onChange={handleCol}></Input>
+    <InputText>Size</InputText>
+    <Input type="text" placeholder='XS,S' name="size"  onChange={handleSize}></Input>
     <InputText>Stock</InputText>
     <Select name="inStock" onChange={handleChange}>
         <Option value="true">Yes</Option>

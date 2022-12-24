@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect ,useState} from 'react';
 import styled from 'styled-components';
 import { popularProducts } from '../data';
 import Product from './Product';
 import Axios from 'axios'
-import { useState } from 'react';
+
 const Container = styled.div`
     display:flex;
     flex-wrap:wrap;
@@ -13,17 +13,18 @@ const Products = ({cat,filters,sort}) => {
   console.log(cat,filters,sort)
   const [products,setProduct] = useState([])
   const [filteredProduct,setFilteredProduct] = useState([])
+
   useEffect(()=>{
-    const getProducts=()=>{
+    const getProducts = async()=>{
       try{
-        const response = Axios.get(cat ?`http://localhost:5000/api/product?category=${cat}`:
-        'http://localhost:5000/api/product');
+        const response = await Axios.get('http://localhost:5000/api/product?category=bffbfb');
         console.log(response)
+      setProduct(response.data)
       }catch(err){
         console.log(err)
       }
     }   
-     setProduct(response.data)
+    getProducts()
   },[cat])
 
   useEffect(()=>{
