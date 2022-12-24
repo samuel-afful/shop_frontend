@@ -74,7 +74,7 @@ const ProductListing = () => {
   console.log(cat)
   
   const handleChange=(e)=>{      
-          const value = e.target.value;
+          const value = e.target.value.toLowerCase();
           setFilters(
              { ...filters,
               [e.target.name]:value}

@@ -72,7 +72,7 @@ const Admin = () => {
             )
     }
     const handleSize = (e)=>{
-      setCat(e.target.value.split(","))
+      setSize(e.target.value.split(","))
   }
     const handleCat = (e)=>{
         setCat(e.target.value.split(","))
@@ -113,12 +113,13 @@ uploadTask.on('state_changed',
   }, 
   (error) => {
     // Handle unsuccessful uploads
+    console.log("error uploading file")
   }, 
   () => {
     // Handle successful uploads on complete
     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
      getDownloadURL(uploadTask.snapshot.ref).then(async(downloadURL) => {
-         data = {...product,img:downloadURL,categories:cat,color:color}
+         data = {...product,img:downloadURL,categories:cat,color:color,size:size}
       console.log(data);
       try{
         const response =await Axios.post("http://127.0.0.1:5000/api/product/products",data);

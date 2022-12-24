@@ -17,7 +17,7 @@ const Products = ({cat,filters,sort}) => {
   useEffect(()=>{
     const getProducts = async()=>{
       try{
-        const response = await Axios.get('http://localhost:5000/api/product?category=bffbfb');
+        const response = await Axios.get(cat?`http://localhost:5000/api/product?category=${cat}`:'http://localhost:5000/api/product');
         console.log(response)
       setProduct(response.data)
       }catch(err){
@@ -36,10 +36,20 @@ const Products = ({cat,filters,sort}) => {
         )
       );
   },[products,cat,filters])
+
+  // useEffect(()=>{
+  //   if(sort==="newest"){
+  //     setFilteredProduct((prev)=>(
+  //       [...prev].sort((a,b)=>(a.createdAt-b.createdAt))
+  //     ))
+  //   }
+  //   else if(sort="")
+  // })
+  console.log(filteredProduct)
   return (
     <Container>
         {
-            popularProducts.map(product=>(
+            filteredProduct.map(product=>(
                <Product product={product} key={product.id}/>
             ))
         }
