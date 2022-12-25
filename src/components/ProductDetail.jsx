@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from "styled-components";
 import img1 from "../img/img1.png";
 import { mobile } from '../responsive';
 import {Add,Remove} from "@mui/icons-material"
+import { useLocation } from 'react-router-dom';
+import Axios from 'axios';
+import { useState } from 'react';
 
 const Container = styled.div`
 width:100%;
@@ -19,15 +22,16 @@ const Wrapper = styled.div`
 const ImageContainer = styled.div`
    flex:1;
     background-color: #f3fafa;
-    height:50vh;
+    height:70vh;
+
     ${mobile({width:"100%"})}
 `
 const Image = styled.img`
 width: 100%;
-height: 80vh;
+height: 60vh;
 object-fit: cover;
 background-color: #f3fafa;
-${mobile({height:"100%"})}
+${mobile({height:"75%",width:"100%"})}
 `
 const InfoContainer = styled.div`
     flex:1;
@@ -108,43 +112,77 @@ const CartButton = styled.button`
     ${mobile({fontSize:"10px",width: "100%",height:"50px"})}
 `
 const ProductDetail = () => {
+    const location = useLocation();
+    const [product,setProduct] = useState({})
+    const [qty,setQty] = useState(1)
+    const [color,setColor] = useState("")
+    const [size,setSize] = useState("")
+    const id = location.pathname.split('/')[2]
+    console.log(color)
+    console.log(size)
+    const handleQtySub =async()=>{
+       
+           qty>1 && setQty(qty-1)
+        
+    }
+    const handleQtyAdd =async()=>{
+        
+            setQty(qty+1)
+        }
+    const handleCart = async ()=>{
+        
+    }
+    useEffect(()=>{
+        try{
+            const getProduct = async()=>{
+                const response = await Axios.get('http://localhost:5000/api/product/find/'+id)
+                console.log(response)
+                
+                setProduct(response.data)
+            }
+            getProduct()
+        }catch(err){
+            console.log(err)
+        }
+        
+        
+    },[id])
+    
   return (
     <Container>
         <Wrapper>
         <ImageContainer>
-            <Image src={img1}/>
+            <Image src={product.img}/>
         </ImageContainer>
         <InfoContainer>
-            <Title>Jeans On Top</Title>
+            <Title>{product.title}</Title>
             <Desc>
-                Shirts And Shorts Shirts And Shorts Shirts And Shorts 
-                Shirts And Shorts Shirts And Shorts Shirts And ShortsShirts And Shorts
+                {product.desc}
             </Desc>
             <PriceContainer>
             <Currency>$</Currency>
-            <Price>20</Price>
+            <Price>{product.price}</Price>
             </PriceContainer>
             <ColorContainer>
                 <TextColor>Colors:</TextColor>
-                <Color bg="black"></Color>
-                <Color bg="blue"></Color>
-                <Color bg="gray"></Color>
+                
+                {product.color?.map((c)=>(
+                    <Color bg={c} key={c} onClick={()=>setColor(c)}/>
+                ))}            
                 <SizeContainer>
                     <SizeText>Size:</SizeText>
-                    <Size>
-                        <SizeOption>XS</SizeOption>
-                        <SizeOption>S</SizeOption>
-                        <SizeOption>M</SizeOption>
-                        <SizeOption>L</SizeOption>
-                        <SizeOption>XL</SizeOption>
+                    <Size onChange={(e)=>setSize(e.target.value)}>
+                    {product.size?.map((s)=>(
+                     <SizeOption >{s.toUpperCase()}</SizeOption>
+                ))}                      
                     </Size>
                 </SizeContainer>
             </ColorContainer>
             <Quantity>
-               <Remove/>
-                <QtyBtn>1</QtyBtn>
-                <Add/>     
-                <CartButton>ADD TO CART</CartButton>        
+               <Remove onClick={handleQtySub}/>
+                <QtyBtn >{qty}</QtyBtn>
+                <Add onClick={handleQtyAdd}/>     
+                <CartButton onClick={handleCart}>ADD TO CART</CartButton>        
             </Quantity>
         </InfoContainer>
         </Wrapper>
