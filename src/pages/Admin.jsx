@@ -149,7 +149,7 @@ uploadTask.on('state_changed',
     <InputText>Name</InputText>
     <Input type="text" placeholder='Jeans' name="title" onChange={handleChange}></Input>
     <InputText>Description</InputText>
-    <Input type="text" placeholder='description...' name="desc" onChange={handleChange}></Input>
+    <Input type="text" placeholder='description...' name="description" onChange={handleChange}></Input>
     <InputText>Price</InputText>
     <Input type="number" name="price" placeholder='100'  onChange={handleChange}></Input>
     <InputText>Categories</InputText>

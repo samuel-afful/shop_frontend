@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { grey,black } from '@mui/material/colors';
 import { SearchOutlined,FavoriteBorderOutlined, ShoppingCartOutlined } from '@mui/icons-material';
 
 const Info = styled.div`
@@ -63,17 +65,26 @@ const Icon = styled.div`
       transform: scale(1.1);
     }
 `
+
+const LinkColor = styled.a`
+    color:black;
+    decoration:none;
+`
 const Product = ({product}) => {
   return (
    <Container>
         <Circle/>
         <Image src={product.img} />
         <Info>
-           <Icon>
-            <SearchOutlined/>        
+        <Link to={`/product/${product._id}`}>
+          <LinkColor>
+           <Icon>    
+            <SearchOutlined/>   
            </Icon>
+          </LinkColor>
+           </Link>   
            <Icon>       
-            <ShoppingCartOutlined/>
+            <ShoppingCartOutlined />
            </Icon>
            <Icon>         
            <FavoriteBorderOutlined/>

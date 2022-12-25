@@ -1,4 +1,4 @@
-import styled from "styled-components"
+
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
@@ -8,16 +8,15 @@ import Product from "./pages/Product";
 import News from "./pages/News"
 import Admin from "./pages/Admin"
 import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
+import ScrollToTop from "./ScrollToTop";
 
-const Container = styled.div`
-  width:100vw;
-` 
 
 function App() {
   const user = true;
   return (
    <Router>
-           <Routes>
+      <ScrollToTop>  
+            <Routes>
               <Route path='/' element={<Home/> }/> 
               <Route path='/news' element={<News/> }/>
               <Route path='/products/:category' element={<ProductListing/> }/> 
@@ -26,7 +25,9 @@ function App() {
               <Route path='/register' element={<Register/> }/> 
               <Route path='/admin' element={<Admin/> }/> 
               {user?<Route path='/' element={<Home/> }/>:<Route path='/login'  element={<Login/> }/>} 
-            </Routes> 
+            </Routes>
+      </ScrollToTop>
+ 
    </Router>
    
 

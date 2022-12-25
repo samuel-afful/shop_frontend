@@ -71,7 +71,7 @@ const ProductListing = () => {
   const [sort ,setSort] = useState('newest')
   const location  = useLocation();
   const cat = location.pathname.split('/')[2]
-  console.log(cat)
+  console.log(location)
   
   const handleChange=(e)=>{      
           const value = e.target.value.toLowerCase();
@@ -109,10 +109,9 @@ const ProductListing = () => {
         <SortProduct>
             <SortText>Sort Products:</SortText>
             <SelectSort onChange={(e)=>setSort(e.target.value)}>
-            <OptionSort selected>Newest</OptionSort>
-                <OptionSort>Price(asc)</OptionSort>
-                <OptionSort>Price(desc)</OptionSort>
-                <OptionSort>Black</OptionSort>
+            <OptionSort value="newest" selected>Newest</OptionSort>
+                <OptionSort value="asc">Price(asc)</OptionSort>
+                <OptionSort value="desc">Price(desc)</OptionSort>
             </SelectSort>
         </SortProduct>
         </FilterContainer>

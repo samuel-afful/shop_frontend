@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {mobile} from "../responsive";
 import { Search,ShoppingCartOutlined } from '@mui/icons-material';
 import  { Badge } from '@mui/material';
+import { useSelector } from 'react-redux';
 import { grey } from '@mui/material/colors';
 const Container = styled.div`
     height: 60px;
@@ -65,6 +66,8 @@ margin-left:25px;
 ${mobile({marginLeft:"auto",margin:"3px",fontSize:"12px"})}
 `
 const Navbar = () => {
+    const cart = useSelector((state)=>state.cart);
+    console.log(cart)
   return (   
       <Container>
             <Wrapper>              
